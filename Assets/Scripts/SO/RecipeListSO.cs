@@ -1,7 +1,9 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class RecipeListSO : MonoBehaviour {
+[CreateAssetMenu()]
+public class RecipeListSO : ScriptableObject {
 
-
+    public List<RecipeSO> recipeSOList;
 
 }

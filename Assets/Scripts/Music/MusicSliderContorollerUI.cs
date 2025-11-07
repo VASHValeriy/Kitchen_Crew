@@ -49,12 +49,10 @@ public class MusicSliderContorollerUI : MonoBehaviour {
 
     public void StartDrag() {
         _isDragging = true;
-        SoundManager.Instance.IgnoreLooping = true;
     }
 
     public void EndDrag() {
         _isDragging = false;
-        SoundManager.Instance.IgnoreLooping = false;
 
         if (_audioSource != null) {
             if (!_audioSource.isPlaying) _audioSource.Play();
