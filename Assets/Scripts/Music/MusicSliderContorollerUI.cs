@@ -35,7 +35,6 @@ public class MusicSliderContorollerUI : MonoBehaviour {
         if (!_isDragging && _audioSource.isPlaying) {
             _musicSliderLength.value = _audioSource.time;
         }
-        //Debug.Log($"AudioSource.time = {_audioSource.time}, isPlaying = {_audioSource.isPlaying}, _musicSliderLength.value = {_musicSliderLength.value}");
     }
 
     private void OnSliderValueChanged(float value) {

@@ -6,6 +6,7 @@ using VashValeriy;
 public class Player : MonoBehaviour, IKitchenObjectParent {
     public static Player Instance { get; private set; }
 
+    public event EventHandler OnPickedItem;
     public event EventHandler<OnSelectedCounterChangedEventrArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventrArgs : EventArgs {
         public BaseCounter selectedCounter;
@@ -136,6 +137,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
     public void SetKitchenObject(KitchenObject kitchenObject) {
         _kitchenObject = kitchenObject;
+
+        if(kitchenObject != null) {
+            OnPickedItem?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public KitchenObject GetKitchenObject() {
