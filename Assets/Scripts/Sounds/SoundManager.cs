@@ -1,12 +1,13 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class SoundManager : MonoBehaviour {
 
     public static SoundManager Instance { get; private set; }
     public Slider MusicVolumeSlider { get; private set; }
- 
+
     [Header("Audio Source")]
     [SerializeField] private AudioSource _sfxSource;
     [SerializeField] private AudioSource _musicSource;
@@ -16,8 +17,8 @@ public class SoundManager : MonoBehaviour {
     public AudioSource MusicSource => _musicSource;
 
     [Header("Music Settings")]
-    public AudioClip mainMenuMusic;      // œÓÎÌ˚È ÚÂÍ
-    private float _loopStartTime = 8.5f; // ¬ÂÏˇ ‚ ÒÂÍÛÌ‰‡ı, Ò ÍÓÚÓÓ„Ó Ì‡˜ËÌ‡ÂÚÒˇ Á‡ˆËÍÎË‚‡ÌËÂ
+    public AudioClip mainMenuMusic;     // –ü–æ–ª–Ω—ã–π —Ç—Ä–µ–∫
+    private float _loopStartTime = 8f; // –í—Ä–µ–º—è –≤ —Å–µ–∫—É–Ω–¥–∞—Ö, —Å –∫–æ—Ç–æ—Ä–æ–≥–æ –Ω–∞—á–∏–Ω–∞–µ—Ç—Å—è –∑–∞—Ü–∏–∫–ª–∏–≤–∞–Ω–∏–µ
 
     [Header("SFX Volume Settings")]
     private float _trashVolume = 0.4f;
@@ -25,11 +26,6 @@ public class SoundManager : MonoBehaviour {
     public float GetSFXVolume() => _sfxSource.volume;
 
     public event System.Action<float> OnSfxVolumeChanged;
-
-    public void GetVolumeMusicSlider(Slider slider) {
-        MusicVolumeSlider = slider;
-    }
-
 
     private void Awake() {
         if (Instance != null && Instance != this) {
@@ -44,9 +40,14 @@ public class SoundManager : MonoBehaviour {
         _sfxSource.volume = 0.5f;
         SetSfxVolume(_sfxSource.volume);
 
-        DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
-        DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
-        Player.Instance.OnPickedItem += Player_OnPickedItem;
+        if (DeliveryManager.Instance != null) {
+            DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
+            DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
+        }
+
+        if (Player.Instance != null) {
+            Player.Instance.OnPickedItem += Player_OnPickedItem;
+        }
 
         CuttingCounter.OnEveryKnifeSound += CuttingCounter_OnEveryKnifeSound;
         BaseCounter.OnObjectPlacement += BaseCounter_OnObjectPlacement;
@@ -55,8 +56,23 @@ public class SoundManager : MonoBehaviour {
         PlayMusic(mainMenuMusic);
     }
 
+    private void OnDestroy() {
+        if (DeliveryManager.Instance != null) {
+            DeliveryManager.Instance.OnRecipeSuccess -= DeliveryManager_OnRecipeSuccess;
+            DeliveryManager.Instance.OnRecipeFailed -= DeliveryManager_OnRecipeFailed;
+        }
+
+        if (Player.Instance != null) {
+            Player.Instance.OnPickedItem -= Player_OnPickedItem;
+        }
+
+        CuttingCounter.OnEveryKnifeSound -= CuttingCounter_OnEveryKnifeSound;
+        BaseCounter.OnObjectPlacement -= BaseCounter_OnObjectPlacement;
+        TrashCounter.OnDropTrash -= TrashCounter_OnDropTrash;
+    }
+
     private void Update() {
-        // œÓ‚ÂˇÂÏ, ÌÂ ÚˇÌÂÚ ÎË ÔÓÎ¸ÁÓ‚‡ÚÂÎ¸ ÒÎ‡È‰Â
+        // –ü—Ä–æ–≤–µ—Ä—è–µ–º, –Ω–µ —Ç—è–Ω–µ—Ç –ª–∏ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—å —Å–ª–∞–π–¥–µ—Ä
         if (MusicSliderContorollerUI.Instance != null && MusicSliderContorollerUI.Instance.IsDragging)
             return;
 
@@ -73,15 +89,15 @@ public class SoundManager : MonoBehaviour {
         _musicSource.Play();
     }
 
-    private void PlaySFX(AudioClip[] clipArray, Vector3 position, float volume = 0.5f ) {
+    private void PlaySFX(AudioClip[] clipArray, Vector3 position, float volume = 0.5f) {
         if (clipArray == null || clipArray.Length == 0) return;
         _sfxSource.transform.position = position;
         _sfxSource.PlayOneShot(clipArray[Random.Range(0, clipArray.Length)], volume * _sfxSource.volume);
     }
 
     public void PlayStepsOfPlayers(Vector3 position, float volume = 0.5f) {
-        PlaySFX(_audioClipsSFXRefsSO.footStep, position, volume * _sfxSource.volume);        
-        } 
+        PlaySFX(_audioClipsSFXRefsSO.footStep, position, volume * _sfxSource.volume);
+    }
 
     public void SetMusicVolume(float volume) {
         _musicSource.volume = Mathf.Clamp01(volume);
@@ -90,6 +106,10 @@ public class SoundManager : MonoBehaviour {
     public void SetSfxVolume(float volume) {
         _sfxSource.volume = Mathf.Clamp01(volume);
         OnSfxVolumeChanged?.Invoke(_sfxSource.volume);
+    }
+
+    public void GetVolumeMusicSlider(Slider slider) {
+        MusicVolumeSlider = slider;
     }
 
     public void StopMusic() => _musicSource.Stop();
@@ -115,11 +135,14 @@ public class SoundManager : MonoBehaviour {
     }
 
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e) {
+        Debug.Log("–ó–≤—É–∫ DeliveryManager_OnRecipeFailed —Ä–µ—Ü–µ–ø—Ç–∞!");
+
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
         PlaySFX(_audioClipsSFXRefsSO.deliveryFailed, deliveryCounter.transform.position);
     }
 
     private void DeliveryManager_OnRecipeSuccess(object sender, System.EventArgs e) {
+        Debug.Log("–ó–≤—É–∫ —É—Å–ø–µ—Ö–∞ —Ä–µ—Ü–µ–ø—Ç–∞!");
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
         PlaySFX(_audioClipsSFXRefsSO.deliverySuccess, deliveryCounter.transform.position);
     }

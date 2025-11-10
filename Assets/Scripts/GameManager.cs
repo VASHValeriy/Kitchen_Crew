@@ -5,10 +5,12 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance { get; private set; }
 
+    private const string GAME_SCENE = "GameScene";
 
     public event EventHandler OnStateChanged;
 
-    private enum State { 
+    private enum State {
+        MainMenuScene,
         PauseBeforeStart,
         TimerToStart,
         GamePlay,
@@ -16,23 +18,32 @@ public class GameManager : MonoBehaviour {
     }
 
     private State _state;
-    private float _timeBeforeStart = 1f;
+    private float _timeBeforeStart = .1f;
     private float _timeToStart = 3f;
     private float _itsTimeToPlay;
-    private float _itsTimeToPlayMax = 10f;
+    private float _itsTimeToPlayMax = 50f;
 
     private void Awake() {
-        Instance = this;
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+            return;
+        }
 
-        _state = State.PauseBeforeStart;
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        _state = State.MainMenuScene;
     }
 
     private void Update() {
-        
-        switch(_state) {
+        if (_state == State.MainMenuScene) return;
+
+        switch (_state) {
+            case State.MainMenuScene:
+                break;
             case State.PauseBeforeStart:
                 _timeBeforeStart -= Time.deltaTime;
-                if(_timeBeforeStart < 0) {
+                if (_timeBeforeStart < 0) {
                     _state = State.TimerToStart;
 
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
@@ -58,7 +69,16 @@ public class GameManager : MonoBehaviour {
             case State.GameOver:
                 break;
         }
-        Debug.Log(_state);
+    }
+
+    public void StartGame() {
+       if(_state == State.MainMenuScene) {
+            _state = State.PauseBeforeStart;
+
+            OnStateChanged?.Invoke(this, EventArgs.Empty);
+
+            ScenesLoader.LoadScene(GAME_SCENE);
+        }
     }
 
     public bool isGamePlaying() {
