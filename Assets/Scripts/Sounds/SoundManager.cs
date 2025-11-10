@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour {
 
     public static SoundManager Instance { get; private set; }
-
+    public Slider MusicVolumeSlider { get; private set; }
+ 
     [Header("Audio Source")]
     [SerializeField] private AudioSource _sfxSource;
     [SerializeField] private AudioSource _musicSource;
@@ -15,8 +17,18 @@ public class SoundManager : MonoBehaviour {
 
     [Header("Music Settings")]
     public AudioClip mainMenuMusic;      // Полный трек
-    public float loopStartTime = 10f; // Время в секундах, с которого начинается зацикливание
-    public bool IgnoreLooping = false;
+    private float _loopStartTime = 8.5f; // Время в секундах, с которого начинается зацикливание
+
+    [Header("SFX Volume Settings")]
+    private float _trashVolume = 0.4f;
+
+    public float GetSFXVolume() => _sfxSource.volume;
+
+    public event System.Action<float> OnSfxVolumeChanged;
+
+    public void GetVolumeMusicSlider(Slider slider) {
+        MusicVolumeSlider = slider;
+    }
 
 
     private void Awake() {
@@ -29,6 +41,9 @@ public class SoundManager : MonoBehaviour {
     }
 
     private void Start() {
+        _sfxSource.volume = 0.5f;
+        SetSfxVolume(_sfxSource.volume);
+
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
         Player.Instance.OnPickedItem += Player_OnPickedItem;
@@ -40,9 +55,48 @@ public class SoundManager : MonoBehaviour {
         PlayMusic(mainMenuMusic);
     }
 
+    private void Update() {
+        // Проверяем, не тянет ли пользователь слайдер
+        if (MusicSliderContorollerUI.Instance != null && MusicSliderContorollerUI.Instance.IsDragging)
+            return;
+
+        // Loop logic
+        if (_musicSource.time >= _musicSource.clip.length - 0.05f) {
+            _musicSource.time = _loopStartTime;
+        }
+    }
+
+    public void PlayMusic(AudioClip clip) {
+        if (clip == null) return;
+
+        _musicSource.clip = clip;
+        _musicSource.Play();
+    }
+
+    private void PlaySFX(AudioClip[] clipArray, Vector3 position, float volume = 0.5f ) {
+        if (clipArray == null || clipArray.Length == 0) return;
+        _sfxSource.transform.position = position;
+        _sfxSource.PlayOneShot(clipArray[Random.Range(0, clipArray.Length)], volume * _sfxSource.volume);
+    }
+
+    public void PlayStepsOfPlayers(Vector3 position, float volume = 0.5f) {
+        PlaySFX(_audioClipsSFXRefsSO.footStep, position, volume * _sfxSource.volume);        
+        } 
+
+    public void SetMusicVolume(float volume) {
+        _musicSource.volume = Mathf.Clamp01(volume);
+    }
+
+    public void SetSfxVolume(float volume) {
+        _sfxSource.volume = Mathf.Clamp01(volume);
+        OnSfxVolumeChanged?.Invoke(_sfxSource.volume);
+    }
+
+    public void StopMusic() => _musicSource.Stop();
+
     private void TrashCounter_OnDropTrash(object sender, System.EventArgs e) {
         TrashCounter trashCounter = sender as TrashCounter;
-        PlaySFX(_audioClipsSFXRefsSO.trash, trashCounter.transform.position);
+        PlaySFX(_audioClipsSFXRefsSO.trash, trashCounter.transform.position, _trashVolume);
     }
 
     private void BaseCounter_OnObjectPlacement(object sender, System.EventArgs e) {
@@ -69,43 +123,5 @@ public class SoundManager : MonoBehaviour {
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
         PlaySFX(_audioClipsSFXRefsSO.deliverySuccess, deliveryCounter.transform.position);
     }
-
-    private void Update() {
-        // Когда трек подходит к концу или минус loopStartTime, включаем зацикливание
-        if (!IgnoreLooping && _musicSource.clip != null && _musicSource.time >= _musicSource.clip.length) {
-            _musicSource.time = loopStartTime;
-            _musicSource.Play();
-        }
-
-    }
-
-    public void PlayMusic(AudioClip clip) {
-        if (clip == null) return;
-
-        _musicSource.clip = clip;
-        _musicSource.loop = false;
-        _musicSource.time = 0f;
-        _musicSource.Play();
-    }
-
-    private void PlaySFX(AudioClip[] clipArray, Vector3 position, float volume = 0.5f ) {
-        if (clipArray == null || clipArray.Length == 0) return;
-        _sfxSource.transform.position = position;
-        _sfxSource.PlayOneShot(clipArray[Random.Range(0, clipArray.Length)], volume * _sfxSource.volume);
-    }
-
-    public void PlayStepsOfPlayers(Vector3 position, float volume = 0.5f) {
-        PlaySFX(_audioClipsSFXRefsSO.footStep, position, volume * _sfxSource.volume);        
-        } 
-
-    public void SetMusicVolume(float volume) {
-        _musicSource.volume = Mathf.Clamp01(volume);
-    }
-
-    public void SetSfxVolume(float volume) {
-        _sfxSource.volume = Mathf.Clamp01(volume);
-    }
-
-    public void StopMusic() => _musicSource.Stop();
 
 }

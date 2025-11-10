@@ -8,7 +8,6 @@ public class CuttingCounterVisual : MonoBehaviour {
     [SerializeField] private GameObject _particlesGameObject;
 
     private Animator _animator;
-    private bool _isCutPlaying = false;
 
     private void Awake() {
         _animator = GetComponent<Animator>();

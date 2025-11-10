@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HierarchyHotkeys{
     // Ctrl + [
-    [MenuItem("Tools/Hierarchy/Move Up %o")]
+    [MenuItem("Tools/Hierarchy/Move Up %p")]
     private static void MoveUp() {
         foreach (GameObject obj in Selection.gameObjects) {
             Transform t = obj.transform;
@@ -14,7 +14,7 @@ public class HierarchyHotkeys{
     }
 
     // Ctrl + ]
-    [MenuItem("Tools/Hierarchy/Move Down %p")]
+    [MenuItem("Tools/Hierarchy/Move Down %o")]
     private static void MoveDown() {
         foreach (GameObject obj in Selection.gameObjects) {
             Transform t = obj.transform;

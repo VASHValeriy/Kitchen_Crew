@@ -4,12 +4,17 @@ using System.Collections;
 
 public class MusicSliderContorollerUI : MonoBehaviour {
 
+    public static MusicSliderContorollerUI Instance { get; private set; }
+    public bool IsDragging => _isDragging;
+
     [SerializeField] private Slider _musicSliderLength;
     private AudioSource _audioSource;
 
     private bool _isDragging = false;
-    public static bool IsUIActive;
 
+    private void Awake() {
+        Instance = this;
+    }
 
     private IEnumerator Start() {
         yield return new WaitUntil(() => SoundManager.Instance != null && SoundManager.Instance.MusicSource != null);
@@ -54,8 +59,14 @@ public class MusicSliderContorollerUI : MonoBehaviour {
         _isDragging = false;
 
         if (_audioSource != null) {
-            if (!_audioSource.isPlaying) _audioSource.Play();
-            _audioSource.time = _musicSliderLength.value;
+            // Безопасно обновляем позицию после отпускания слайдера
+            float newTime = Mathf.Clamp(_musicSliderLength.value, 0f, _audioSource.clip.length - 0.01f);
+            _audioSource.time = newTime;
+
+            // Если музыка была на паузе — запускаем
+            if (!_audioSource.isPlaying) {
+                _audioSource.Play();
+            }
         }
     }
 }
