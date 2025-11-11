@@ -16,6 +16,7 @@ public class PlayersFootstepSound : MonoBehaviour {
             _stepsTimer = _stepsTimerMax;
 
             if (_player.IsWalking()) {
+                if (SoundManager.Instance == null) return;
                 SoundManager.Instance.PlayStepsOfPlayers(_player.transform.position);
             }
         }

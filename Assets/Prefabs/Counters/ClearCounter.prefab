@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 739208407102772912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
   _counterTopPoint: {fileID: 5510267104365169169}
@@ -265,6 +265,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 848253711407452312}
   m_SourcePrefab: {fileID: 100100000, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
+--- !u!1 &2993251503566541380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8489276541531669327, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
+  m_PrefabInstance: {fileID: 6648951783554126091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7202418454867801504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
@@ -287,5 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4c46b7882d1274f8c3252c9949f068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
-  _baseCounter: {fileID: 0}
-  _visualGameObjectArray: []
+  _baseCounter: {fileID: 4640060541672698715}
+  _visualGameObjectArray:
+  - {fileID: 2993251503566541380}

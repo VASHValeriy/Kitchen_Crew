@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5682150618139248710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2539c0b856629d0418cc6ae49e8e5195, type: 3}
+  m_Script: {fileID: 11500000, guid: 31f7d2054fb3e6e489bd5c24ca26e1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject
   _kitchenObjectSO: {fileID: 11400000, guid: 313e5ddd54475fa4dba021d22dd64f67, type: 2}

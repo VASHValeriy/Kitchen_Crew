@@ -114,7 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6540530695264847587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d2f803d1dd646438575a5c0c62f34a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b122ce0b249bc1428faf77d4c41086e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContainerCounter
   _counterTopPoint: {fileID: 2089378436562803266}
@@ -219,9 +219,7 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
-    m_RemovedComponents:
-    - {fileID: 6289625630049244101, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
-    - {fileID: 6293458414856879204, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 102550813385737453, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
     - {fileID: 5261771210811040880, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
@@ -230,6 +228,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4589716710238282922, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6361796878906057363}
+    - targetCorrespondingSourceObject: {fileID: 4589716710238282922, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3228460393595791552}
   m_SourcePrefab: {fileID: 100100000, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
 --- !u!1 &1276309841513612253 stripped
 GameObject:
@@ -253,11 +254,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4c46b7882d1274f8c3252c9949f068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
-  _baseCounter: {fileID: 0}
+  _baseCounter: {fileID: 6204234550674035142}
   _visualGameObjectArray:
   - {fileID: 8731235442512558521}
   - {fileID: 7228648085184828976}
   - {fileID: 1276309841513612253}
+--- !u!95 &3228460393595791552
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089853871442094204}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 159fdf44081dc31468b5d2cf94ed008e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &3089853871442094205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}

@@ -56,7 +56,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: -0.57
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -251,13 +251,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5637125911255578420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4712b6a800151a343ae5ccfee4c1c81e, type: 3}
+  m_Script: {fileID: 11500000, guid: 055a927354956094085039b93fa35ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoveCounter
   _counterTopPoint: {fileID: 576826597146553237}
   _fryingRecipeSOArray:
   - {fileID: 11400000, guid: e4527b6647d00784bbc6810557463b0a, type: 2}
-  _burningRecipeSOArray: []
+  _burningRecipeSOArray:
+  - {fileID: 11400000, guid: bf7291f90a24b5f478b883d17085f0ab, type: 2}
 --- !u!1001 &3674886904726569028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -266,6 +267,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 155503237466086567}
     m_Modifications:
+    - target: {fileID: 2354335380219307265, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367827574963789159, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5184036798654400673, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: _hasProgressGameObject
       value: 
@@ -296,11 +305,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -312,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.6056383
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -332,11 +353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -955.5
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -354,11 +375,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProgressBarUI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 811818060430183737, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7132928513042755758, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 400123324065997319}
   m_SourcePrefab: {fileID: 100100000, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+--- !u!1 &5765331670456430826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7132928513042755758, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+  m_PrefabInstance: {fileID: 3674886904726569028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &400123324065997319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765331670456430826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0b709bea15ccf41a33e93b8f0c3fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookAtCameraUtils
+  _mode: 2
 --- !u!224 &5929216197095809086 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}

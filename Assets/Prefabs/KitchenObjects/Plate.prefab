@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 3500286444726700853}
   - component: {fileID: 8865038635297945662}
   - component: {fileID: 5684557166270805938}
-  - component: {fileID: 5842898580369309125}
+  - component: {fileID: 5458629298440770281}
   m_Layer: 5
   m_Name: PlateIconsUI
   m_TagString: Untagged
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlatesIconUI
   _plateKitchenObject: {fileID: 4928809797626162019}
   _iconTemplate: {fileID: 5700678558219749403}
---- !u!114 &5842898580369309125
+--- !u!114 &5458629298440770281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,9 +202,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 898576086732100942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a81e61948cb9094da61fb20e1777919, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f0b709bea15ccf41a33e93b8f0c3fa7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LookAtCamera
+  m_EditorClassIdentifier: Assembly-CSharp::LookAtCameraUtils
   _mode: 2
 --- !u!1 &1355895731914272356
 GameObject:
@@ -325,17 +325,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5682150618139248710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fba5ad792473e094eb66743ebe187b43, type: 3}
+  m_Script: {fileID: 11500000, guid: c5d1160e328b4ef429f0436790ba0b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlateKitchenObject
-  _kitchenObjectSO: {fileID: 11400000, guid: e052e0e3c1b4a254b990bb773901b89e, type: 2}
+  _kitchenObjectSO: {fileID: 11400000, guid: fbb05f1c81dbb9e4ebb2d34c8bd6f027, type: 2}
   _validKitchenObjectSOList:
   - {fileID: 11400000, guid: 38e8bde0db3554743a8d73f9615919dc, type: 2}
   - {fileID: 11400000, guid: 313e5ddd54475fa4dba021d22dd64f67, type: 2}
   - {fileID: 11400000, guid: 4a05b2f3a440a72439de143df7612609, type: 2}
-  - {fileID: 11400000, guid: 0db981801c6ca8b4b918441002ba2d22, type: 2}
   - {fileID: 11400000, guid: cee6068b4cfc88d43aeb80a1d6fd7779, type: 2}
   - {fileID: 11400000, guid: 5379e106014f5b74f845d08cda414d54, type: 2}
+  - {fileID: 11400000, guid: 0db981801c6ca8b4b918441002ba2d22, type: 2}
 --- !u!1001 &2647668560689886226
 PrefabInstance:
   m_ObjectHideFlags: 0

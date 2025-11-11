@@ -256,10 +256,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 126216905899221503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7b285e364f1194bac3292d4e1f1d7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d6d8ae255f2cb94590c983ec817d931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashCounter
-  _counterTopPoint: {fileID: 0}
+  _counterTopPoint: {fileID: 5186525020434120030}
+--- !u!4 &5186525020434120030 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 646652192047316879, guid: ed83b77acb69d02498e651053ce8a6d3, type: 3}
+  m_PrefabInstance: {fileID: 5693503999300567761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5607831337917123180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 202775624396900541, guid: ed83b77acb69d02498e651053ce8a6d3, type: 3}

@@ -5090,11 +5090,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProgressBarUI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 811818060430183737, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7132928513042755758, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3491491612925509807}
   m_SourcePrefab: {fileID: 100100000, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+--- !u!1 &4753847746579780864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7132928513042755758, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
+  m_PrefabInstance: {fileID: 2523229542626551214}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3491491612925509807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753847746579780864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0b709bea15ccf41a33e93b8f0c3fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookAtCameraUtils
+  _mode: 2
 --- !u!224 &4878334607349761492 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
@@ -5274,7 +5296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3015642580927938751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff29419b5cf4af44adabc4c578ddabd, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e4def065e7ffde41835e90b57cd829b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CuttingCounter
   _counterTopPoint: {fileID: 8062536722155805726}

@@ -464,7 +464,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 74413079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7070f5b3a4db3eb4f94cc30a7f021879, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b0401356b8bf884a99ac53486fcea55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeliverManager
   _recipeListSO: {fileID: 11400000, guid: a934dde6c99e5224db9f50de859c955f, type: 2}
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &108653258
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &178303010
@@ -1024,9 +1024,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3294758251327466535, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1225965302}
-    - targetCorrespondingSourceObject: {fileID: 3294758251327466535, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1225965301}
   m_SourcePrefab: {fileID: 100100000, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
 --- !u!1001 &195047399
 PrefabInstance:
@@ -1670,7 +1667,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &362649174
@@ -1972,7 +1969,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4c6bb78d954a3849864894ab41de954, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e2c3bcfc8f35944b822e7c55f016f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeliveryCounter
 --- !u!4 &428531086 stripped
@@ -2142,7 +2139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1001 &484278030
@@ -2466,7 +2463,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &580396635
@@ -2478,10 +2475,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 580396637}
-  - component: {fileID: 580396636}
+  - component: {fileID: 580396641}
   - component: {fileID: 580396638}
   - component: {fileID: 580396639}
-  - component: {fileID: 580396640}
+  - component: {fileID: 580396642}
+  - component: {fileID: 580396643}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2489,23 +2487,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &580396636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580396635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05c42077ae1299f408a098eeaf3ecf22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterContorller
-  _counterLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _gameInput: {fileID: 838882794}
-  _kitchenObjectHoldPoint: {fileID: 108653259}
 --- !u!4 &580396637
 Transform:
   m_ObjectHideFlags: 0
@@ -2573,7 +2554,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &580396640
+--- !u!114 &580396641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580396635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125a2010e38fbe6428ed87f7dbbc58dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  _counterLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _gameInput: {fileID: 838882794}
+  _kitchenObjectHoldPoint: {fileID: 108653259}
+--- !u!114 &580396642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2585,6 +2583,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c08479535397642a6675b4db90c2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayersFootstepSound
+--- !u!114 &580396643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580396635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a783b914be5013f4c843d07075e7a7bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameInput
 --- !u!1001 &582702642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3185,7 +3195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -107.54993, y: -85.74994}
+  m_AnchoredPosition: {x: -107.549805, y: -85.75}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &702193483
@@ -3297,7 +3307,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!114 &780452426 stripped
@@ -3308,7 +3318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d2f803d1dd646438575a5c0c62f34a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b122ce0b249bc1428faf77d4c41086e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContainerCounter
 --- !u!1 &796467973
@@ -3418,7 +3428,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &832575517
@@ -3614,7 +3624,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1001 &915064767
@@ -3688,6 +3698,18 @@ PrefabInstance:
     - target: {fileID: 5637125911255578420, guid: d346848a16a28804baef7ae4b6dc68c7, type: 3}
       propertyPath: m_Name
       value: StoveCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929216197095809086, guid: d346848a16a28804baef7ae4b6dc68c7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929216197095809086, guid: d346848a16a28804baef7ae4b6dc68c7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929216197095809086, guid: d346848a16a28804baef7ae4b6dc68c7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.519
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4174,7 +4196,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!4 &1142886203 stripped
@@ -4190,7 +4212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &1146612641
@@ -4242,7 +4264,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1001 &1165162503
@@ -4540,29 +4562,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3294758251327466532, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
   m_PrefabInstance: {fileID: 180106432}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1225965301
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225965296}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.65
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.99, z: 0}
 --- !u!95 &1225965302
 Animator:
   serializedVersion: 7
@@ -4597,7 +4596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1932f4b005c970149ac4676dd8a66afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
-  _player: {fileID: 580396636}
+  _player: {fileID: 580396641}
 --- !u!1 &1235461321
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,7 +4652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CloseUIBtn
   _targetCloseObject: {fileID: 1441597087}
-  _targetOpenObject: {fileID: 0}
+  _targetOpenObject: {fileID: 1441597087}
   _button: {fileID: 1235461326}
 --- !u!114 &1235461324
 MonoBehaviour:
@@ -5192,7 +5191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &1441597087
@@ -5228,9 +5227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd61f1c3859b27a41afd8f64b86bcee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CloseOptionsUIBtn
-  _targetCloseObject: {fileID: 0}
-  _targetOpenObject: {fileID: 0}
-  _button: {fileID: 0}
+  _targetCloseObject: {fileID: 1441597087}
+  _targetOpenObject: {fileID: 1441597087}
+  _button: {fileID: 1235461326}
 --- !u!114 &1441597089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6594,7 +6593,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &1653373252
@@ -6808,7 +6807,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1001 &1869932305
@@ -7359,7 +7358,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46229e1ea8f9f8f4cb0595263e47f281, type: 3}
+  m_Script: {fileID: 11500000, guid: c770360bde24b1c449e6ed222ef48c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
 --- !u!1 &2093497715

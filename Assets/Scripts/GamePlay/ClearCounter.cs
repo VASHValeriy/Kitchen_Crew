@@ -3,6 +3,7 @@ using UnityEngine;
 public class ClearCounter : BaseCounter {
 
     [SerializeField] private KitchenObjectSO _kitchenObjectSO;
+    private GameObject _selectedCounter;
 
     public override void Interact(Player player) {
         if (!HasKitchenObject()) {

@@ -90,7 +90,17 @@ public class SoundManager : MonoBehaviour {
     }
 
     private void PlaySFX(AudioClip[] clipArray, Vector3 position, float volume = 0.5f) {
+        if (_sfxSource == null) {
+            Debug.LogWarning("SoundManager: _sfxSource is missing or destroyed!");
+            return;
+        }
+
         if (clipArray == null || clipArray.Length == 0) return;
+
+        if (_sfxSource.gameObject == null) {
+            Debug.LogWarning("SoundManager: AudioSource GameObject was destroyed!");
+            return;
+        }
         _sfxSource.transform.position = position;
         _sfxSource.PlayOneShot(clipArray[Random.Range(0, clipArray.Length)], volume * _sfxSource.volume);
     }

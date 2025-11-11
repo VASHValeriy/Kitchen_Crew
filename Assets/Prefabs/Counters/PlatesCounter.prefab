@@ -90,7 +90,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5612455352054366375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1dcf33c81463854da7bcaeb632cd220, type: 3}
+  m_Script: {fileID: 11500000, guid: 377ead574feebcb4584413b394de838f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatesCounter
   _counterTopPoint: {fileID: 853756441252846598}
