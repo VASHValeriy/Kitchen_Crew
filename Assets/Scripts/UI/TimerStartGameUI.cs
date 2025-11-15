@@ -2,14 +2,18 @@ using TMPro;
 using UnityEditor.Search;
 using UnityEngine;
 
-public class TimerStartGameUI : MonoBehaviour {
+public class TimerStartGameUI : BaseUI {
 
     [SerializeField] private TextMeshProUGUI _timerStartGameUI;
 
-    private void Start() {
-        GameManager.Instance.OnStateChanged += GameManager_OnStateChanged;
+    private void OnEnable() {
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnStateChanged += GameManager_OnStateChanged;
+    }
 
-        Hide();
+    private void OnDisable() {
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnStateChanged -= GameManager_OnStateChanged;
     }
 
     private void Update() {
@@ -22,13 +26,5 @@ public class TimerStartGameUI : MonoBehaviour {
         } else {
             Hide();
         }
-    }
-
-    private void Show() {
-        gameObject.SetActive(true);
-    }
-
-    private void Hide() {
-        gameObject.SetActive(false);
     }
 }

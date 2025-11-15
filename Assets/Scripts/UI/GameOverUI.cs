@@ -1,18 +1,20 @@
 using TMPro;
 using UnityEngine;
 
-public class GameOverUI : MonoBehaviour {
+public class GameOverUI : BaseUI {
 
     [SerializeField] private TextMeshProUGUI _textRecipeDelivered;
 
-
-    private void Start() {
-        GameManager.Instance.OnStateChanged += GameManager_OnStateChanged;
-
+    protected override void Start() {
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnStateChanged += GameManager_OnStateChanged;
         Hide();
     }
 
     private void GameManager_OnStateChanged(object sender, System.EventArgs e) {
+        if (GameManager.Instance == null) return;
+        if (this == null) return;
+
         if (GameManager.Instance.isGameOver()) {
             Show();
 
@@ -20,13 +22,5 @@ public class GameOverUI : MonoBehaviour {
         } else {
             Hide();
         }
-    }
-
-    private void Show() {
-        gameObject.SetActive(true);
-    }
-
-    private void Hide() {
-        gameObject.SetActive(false);
     }
 }

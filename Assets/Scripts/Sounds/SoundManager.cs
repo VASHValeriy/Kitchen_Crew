@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour {
 
     public static SoundManager Instance { get; private set; }
     public Slider MusicVolumeSlider { get; private set; }
+    public Slider SfxVolumeSlider { get; private set; }
 
     [Header("Audio Source")]
     [SerializeField] private AudioSource _sfxSource;
@@ -37,13 +38,10 @@ public class SoundManager : MonoBehaviour {
     }
 
     private void Start() {
-        _sfxSource.volume = 0.5f;
+        _sfxSource.volume = PlayerPrefs.GetFloat("SfxVolume", 0.5f);
+        _musicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         SetSfxVolume(_sfxSource.volume);
-
-        if (DeliveryManager.Instance != null) {
-            DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
-            DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
-        }
+        SetMusicVolume(_musicSource.volume);
 
         if (Player.Instance != null) {
             Player.Instance.OnPickedItem += Player_OnPickedItem;
@@ -56,19 +54,17 @@ public class SoundManager : MonoBehaviour {
         PlayMusic(mainMenuMusic);
     }
 
-    private void OnDestroy() {
-        if (DeliveryManager.Instance != null) {
-            DeliveryManager.Instance.OnRecipeSuccess -= DeliveryManager_OnRecipeSuccess;
-            DeliveryManager.Instance.OnRecipeFailed -= DeliveryManager_OnRecipeFailed;
-        }
+    private void OnEnable() {
+        DeliveryManager.OnCreated += RegisterDeliveryEvents;
+    }
 
-        if (Player.Instance != null) {
-            Player.Instance.OnPickedItem -= Player_OnPickedItem;
-        }
+    private void OnDisable() {
+        DeliveryManager.OnCreated -= RegisterDeliveryEvents;
+    }
 
-        CuttingCounter.OnEveryKnifeSound -= CuttingCounter_OnEveryKnifeSound;
-        BaseCounter.OnObjectPlacement -= BaseCounter_OnObjectPlacement;
-        TrashCounter.OnDropTrash -= TrashCounter_OnDropTrash;
+    private void RegisterDeliveryEvents() {
+        DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
+        DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
     }
 
     private void Update() {
@@ -91,14 +87,12 @@ public class SoundManager : MonoBehaviour {
 
     private void PlaySFX(AudioClip[] clipArray, Vector3 position, float volume = 0.5f) {
         if (_sfxSource == null) {
-            Debug.LogWarning("SoundManager: _sfxSource is missing or destroyed!");
             return;
         }
 
         if (clipArray == null || clipArray.Length == 0) return;
 
         if (_sfxSource.gameObject == null) {
-            Debug.LogWarning("SoundManager: AudioSource GameObject was destroyed!");
             return;
         }
         _sfxSource.transform.position = position;
@@ -109,17 +103,37 @@ public class SoundManager : MonoBehaviour {
         PlaySFX(_audioClipsSFXRefsSO.footStep, position, volume * _sfxSource.volume);
     }
 
+    public void PlayWarningSound(Vector3 position) {
+        PlaySFX(_audioClipsSFXRefsSO.warning, position);
+    }
+
     public void SetMusicVolume(float volume) {
         _musicSource.volume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat("MusicVolume", _musicSource.volume);
+        PlayerPrefs.Save();
     }
 
     public void SetSfxVolume(float volume) {
         _sfxSource.volume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat("SfxVolume", _sfxSource.volume);
+        PlayerPrefs.Save();
+
         OnSfxVolumeChanged?.Invoke(_sfxSource.volume);
     }
 
     public void GetVolumeMusicSlider(Slider slider) {
         MusicVolumeSlider = slider;
+        if (MusicVolumeSlider != null) {
+            MusicVolumeSlider.value = _musicSource.volume; // подтягиваем текущее значение громкости
+            MusicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        }
+    }
+    public void GetVolumeSfxSlider(Slider slider) {
+        SfxVolumeSlider = slider;
+        if (SfxVolumeSlider != null) {
+            SfxVolumeSlider.value = _sfxSource.volume; // подтягиваем текущее значение громкости
+            SfxVolumeSlider.onValueChanged.AddListener(SetSfxVolume);
+        }
     }
 
     public void StopMusic() => _musicSource.Stop();
@@ -145,14 +159,11 @@ public class SoundManager : MonoBehaviour {
     }
 
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e) {
-        Debug.Log("Звук DeliveryManager_OnRecipeFailed рецепта!");
-
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
         PlaySFX(_audioClipsSFXRefsSO.deliveryFailed, deliveryCounter.transform.position);
     }
 
     private void DeliveryManager_OnRecipeSuccess(object sender, System.EventArgs e) {
-        Debug.Log("Звук успеха рецепта!");
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
         PlaySFX(_audioClipsSFXRefsSO.deliverySuccess, deliveryCounter.transform.position);
     }

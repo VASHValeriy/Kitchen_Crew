@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d1160e328b4ef429f0436790ba0b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlateKitchenObject
-  _kitchenObjectSO: {fileID: 11400000, guid: fbb05f1c81dbb9e4ebb2d34c8bd6f027, type: 2}
+  _kitchenObjectSO: {fileID: 11400000, guid: e052e0e3c1b4a254b990bb773901b89e, type: 2}
   _validKitchenObjectSOList:
   - {fileID: 11400000, guid: 38e8bde0db3554743a8d73f9615919dc, type: 2}
   - {fileID: 11400000, guid: 313e5ddd54475fa4dba021d22dd64f67, type: 2}

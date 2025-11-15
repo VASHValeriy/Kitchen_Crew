@@ -26,7 +26,6 @@ public class MusicSliderContorollerUI : MonoBehaviour {
         _musicSliderLength.minValue = 0f;
         _musicSliderLength.maxValue = _audioSource.clip.length;
 
-
         _musicSliderLength.onValueChanged.AddListener(delegate {
             if (_isDragging) _audioSource.time = _musicSliderLength.value;
         });

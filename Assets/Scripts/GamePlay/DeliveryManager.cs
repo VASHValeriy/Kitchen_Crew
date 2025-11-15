@@ -8,6 +8,7 @@ public class DeliveryManager : MonoBehaviour {
     public event EventHandler OnRecipeCompleted;
     public event EventHandler OnRecipeSuccess;
     public event EventHandler OnRecipeFailed;
+    public static event Action OnCreated;
 
     public static DeliveryManager Instance { get; private set; }
 
@@ -22,6 +23,7 @@ public class DeliveryManager : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
+        OnCreated?.Invoke();
         _waitingRecipeSOList = new List<RecipeSO>();
     }
 

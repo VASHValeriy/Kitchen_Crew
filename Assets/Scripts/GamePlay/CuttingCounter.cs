@@ -27,7 +27,7 @@ public class CuttingCounter : BaseCounter, IHasProgress {
 
                     OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
                         progressNormalized = (float)_cuttingProgress / cuttingRecipeSO.cuttingProgressMax
-                    }); 
+                    });
                 }
             } else {
 
@@ -36,8 +36,13 @@ public class CuttingCounter : BaseCounter, IHasProgress {
             if (player.HasKitchenObject()) {
                 if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) {
                     //У игрока в руках тарелка
-                    if (plateKitchenObject.TryAddIngridient(GetKitchenObject().GetKitchenObjectSO())) {
-                        GetKitchenObject().DestroySelf();
+                    if (HasKitchenObject()) {
+
+                        if (plateKitchenObject.TryAddIngridient(GetKitchenObject().GetKitchenObjectSO())) {
+                            GetKitchenObject().DestroySelf();
+                        }
+                    } else {
+                        return;
                     }
                 }
             } else {

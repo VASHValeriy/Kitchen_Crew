@@ -1,13 +1,18 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour {
 
+    public static GameInput Instance { get; private set; }
+
     public static bool isUIFocused;
 
+    public static event Action<GameInput> OnGameInputReady;
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
+    public event EventHandler OnGamePauseAction;
 
     private PlayerInputActions _playerInputActions;
 
@@ -16,12 +21,29 @@ public class GameInput : MonoBehaviour {
     float _acceleration = 10f;
 
     private void Awake() {
+        Instance = this;
+
+        InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
+
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Player.Enable();
         _playerInputActions.UI.Disable();
 
         _playerInputActions.Player.Interact.performed += Interact_performed;
         _playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
+        _playerInputActions.Player.Pause.performed += Pause_performed;
+    }
+
+    private void OnDestroy() {
+        _playerInputActions.Dispose();
+    }
+
+    private void Start() {
+        NotifyReadyGame();
+    }
+
+    private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        OnGamePauseAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
@@ -36,6 +58,10 @@ public class GameInput : MonoBehaviour {
         Vector2 direction = _playerInputActions.Player.Move.ReadValue<Vector2>();
         direction = direction.normalized;
         return direction;
+    }
+
+    private void NotifyReadyGame() {
+        OnGameInputReady?.Invoke(this);
     }
 
     public float GetSprintMultiplier() {

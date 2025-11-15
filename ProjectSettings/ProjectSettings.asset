@@ -922,11 +922,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: f61e954d-dcfa-41e4-90be-25c9e0326e49
+  cloudProjectId: 3d2fad53-a3da-4e16-be47-7ab984c281d4
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Kithcen_Chaos
-  organizationId: vashvaleriyserbia
+  projectName: Kitchen Crew
+  organizationId: vashvaleriyblog
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

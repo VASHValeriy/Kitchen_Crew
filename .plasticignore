@@ -1,0 +1,19 @@
+# Unity generated folders
+Library/
+Temp/
+Logs/
+Build/
+
+# IDE / Git / system files
+.git/
+.vs/
+.idea/
+*.csproj
+*.sln
+*.user
+*.tmp
+
+# Ignore Git metadata
+.git/
+.gitignore
+.gitattributes

@@ -5,8 +5,6 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance { get; private set; }
 
-    private const string GAME_SCENE = "GameScene";
-
     public event EventHandler OnStateChanged;
 
     private enum State {
@@ -18,10 +16,12 @@ public class GameManager : MonoBehaviour {
     }
 
     private State _state;
+
     private float _timeBeforeStart = .1f;
     private float _timeToStart = 3f;
     private float _itsTimeToPlay;
     private float _itsTimeToPlayMax = 50f;
+
 
     private void Awake() {
         if (Instance != null && Instance != this) {
@@ -72,12 +72,16 @@ public class GameManager : MonoBehaviour {
     }
 
     public void StartGame() {
-       if(_state == State.MainMenuScene) {
+        if (_state == State.MainMenuScene) {
             _state = State.PauseBeforeStart;
+
+            _timeBeforeStart = 0.1f;
+            _timeToStart = 3f;
+            _itsTimeToPlay = _itsTimeToPlayMax;
 
             OnStateChanged?.Invoke(this, EventArgs.Empty);
 
-            ScenesLoader.LoadScene(GAME_SCENE);
+            ScenesLoader.LoadScene(ScenesLoader.Scenes.GameScene);
         }
     }
 
@@ -101,4 +105,14 @@ public class GameManager : MonoBehaviour {
         return 1 - (_itsTimeToPlay / _itsTimeToPlayMax);
     }
 
+    public void ReturnToMenu() {
+        _state = State.MainMenuScene;
+
+        // —брос таймера
+        _timeBeforeStart = 0.1f;
+        _timeToStart = 3f;
+        _itsTimeToPlay = _itsTimeToPlayMax;
+
+        OnStateChanged?.Invoke(this, EventArgs.Empty);
+    }
 }

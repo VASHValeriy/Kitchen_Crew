@@ -7,11 +7,8 @@ public class ToggleSoundUI : MonoBehaviour {
     [SerializeField] private Slider _sfxSlider;
 
     private void Start() {
-        // Настраиваем значения при запуске
-        _musicSlider.value = 1f;
-        _sfxSlider.value = 1f;
-
         SoundManager.Instance.GetVolumeMusicSlider(_musicSlider);
+        SoundManager.Instance.GetVolumeSfxSlider(_sfxSlider);
 
         // Подписываемся на события
         _musicSlider.onValueChanged.AddListener(OnMusicValueChanged);
