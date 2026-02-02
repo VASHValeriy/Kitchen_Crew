@@ -13,11 +13,11 @@ public class SoundManager : MonoBehaviour {
     [SerializeField] private AudioSource _sfxSource;
     [SerializeField] private AudioSource _musicSource;
 
-    [Header("Audio Clips")]
+    [Header("List of Audio Clips")]
     [SerializeField] private AudioClipsRerfsSO _audioClipsSFXRefsSO;
     public AudioSource MusicSource => _musicSource;
 
-    [Header("Music Settings")]
+    [Header("Main music")]
     public AudioClip mainMenuMusic;     // Полный трек
     private float _loopStartTime = 8f; // Время в секундах, с которого начинается зацикливание
 
@@ -113,6 +113,15 @@ public class SoundManager : MonoBehaviour {
         PlayerPrefs.Save();
     }
 
+    public void GetVolumeMusicSlider(Slider slider) {
+        MusicVolumeSlider = slider;
+        if(MusicVolumeSlider != null) {
+            MusicVolumeSlider.value = _musicSource.volume;
+
+            MusicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        }
+    }
+
     public void SetSfxVolume(float volume) {
         _sfxSource.volume = Mathf.Clamp01(volume);
         PlayerPrefs.SetFloat("SfxVolume", _sfxSource.volume);
@@ -121,13 +130,6 @@ public class SoundManager : MonoBehaviour {
         OnSfxVolumeChanged?.Invoke(_sfxSource.volume);
     }
 
-    public void GetVolumeMusicSlider(Slider slider) {
-        MusicVolumeSlider = slider;
-        if (MusicVolumeSlider != null) {
-            MusicVolumeSlider.value = _musicSource.volume; // подтягиваем текущее значение громкости
-            MusicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
-        }
-    }
     public void GetVolumeSfxSlider(Slider slider) {
         SfxVolumeSlider = slider;
         if (SfxVolumeSlider != null) {

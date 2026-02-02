@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using VashValeriy;
 
 public class Player : MonoBehaviour, IKitchenObjectParent {
     public static Player Instance { get; private set; }
@@ -21,7 +20,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
     private Vector3 _lastInteractDir;
 
-    private float _moveSpeed = 10f;
+    [SerializeField] private float _moveSpeed = 10f;
 
     private bool _isWalking;
 
