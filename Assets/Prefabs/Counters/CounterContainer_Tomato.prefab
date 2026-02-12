@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 91e8fe3de9249fc44b7bdd8050062896, type: 3}
+    - target: {fileID: 1229432611147087204, guid: 0bc15bd3ea56f664ba2e23ac5888b2b0, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 708e58905eb15c54d90198e0a5cdb76c, type: 3}
     - target: {fileID: 1646012316112907632, guid: 0bc15bd3ea56f664ba2e23ac5888b2b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3228460393595791552, guid: 0bc15bd3ea56f664ba2e23ac5888b2b0, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 708e58905eb15c54d90198e0a5cdb76c, type: 3}
     - target: {fileID: 6540530695264847587, guid: 0bc15bd3ea56f664ba2e23ac5888b2b0, type: 3}
       propertyPath: m_Name
       value: CounterContainer_Tomato

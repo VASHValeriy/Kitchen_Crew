@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1229432611147087204, guid: 0bc15bd3ea56f664ba2e23ac5888b2b0, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 708e58905eb15c54d90198e0a5cdb76c, type: 3}
     - target: {fileID: 1646012316112907632, guid: 0bc15bd3ea56f664ba2e23ac5888b2b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.355
       objectReference: {fileID: 0}
+    - target: {fileID: 3228460393595791552, guid: 0bc15bd3ea56f664ba2e23ac5888b2b0, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 708e58905eb15c54d90198e0a5cdb76c, type: 3}
     - target: {fileID: 6204234550674035142, guid: 0bc15bd3ea56f664ba2e23ac5888b2b0, type: 3}
       propertyPath: _kitchenObjectSO
       value: 
@@ -77,6 +85,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d2f803d1dd646438575a5c0c62f34a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b122ce0b249bc1428faf77d4c41086e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContainerCounter

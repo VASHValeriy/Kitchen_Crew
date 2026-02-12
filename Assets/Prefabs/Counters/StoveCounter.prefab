@@ -216,7 +216,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8305123143106116244}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 708e58905eb15c54d90198e0a5cdb76c, type: 3}
   m_Controller: {fileID: 9100000, guid: 96dd04a691a975546a10694aebfca160, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -293,7 +293,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 131
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -394,7 +394,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 202775624396900541, guid: ed83b77acb69d02498e651053ce8a6d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 202775624396900541, guid: ed83b77acb69d02498e651053ce8a6d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -402,7 +402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 202775624396900541, guid: ed83b77acb69d02498e651053ce8a6d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 202775624396900541, guid: ed83b77acb69d02498e651053ce8a6d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -601,7 +601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5
+      value: 2.519
       objectReference: {fileID: 0}
     - target: {fileID: 6969070408638472314, guid: ad59da90a0a23c640ab846ccdee4355b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -664,7 +664,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5765331670456430826}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 708e58905eb15c54d90198e0a5cdb76c, type: 3}
   m_Controller: {fileID: 9100000, guid: d11ff824ce92b404285dfe5eb2a4f174, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

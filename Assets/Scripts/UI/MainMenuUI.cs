@@ -8,7 +8,6 @@ public class MainMenuUI : MonoBehaviour {
     [Header("Main Menu Buttons")]
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _optionsButton;
-    [SerializeField] private Button _quitButton;
 
     [Header("Canvas Links")]
     [SerializeField] private GameObject _optionsMenuCanvas;
@@ -19,9 +18,6 @@ public class MainMenuUI : MonoBehaviour {
             GameManager.Instance.StartGame();
         });
         _optionsButton.onClick.AddListener((ToggleOptionsMenu));
-        _quitButton.onClick.AddListener(() => {
-            Application.Quit();
-        });
     }
 
     private void ToggleOptionsMenu() {

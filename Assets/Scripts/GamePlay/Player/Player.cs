@@ -21,6 +21,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     private Vector3 _lastInteractDir;
 
     [SerializeField] private float _moveSpeed = 10f;
+    public float currentSpeedNormalized { get; private set; }
 
     private bool _isWalking;
 
@@ -113,6 +114,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         }
 
         _isWalking = moveDir != Vector3.zero;
+
+        currentSpeedNormalized = direction.magnitude * accelerationDirection;
+        Debug.Log($"currentSpeedNormalized: {currentSpeedNormalized}");
 
         if (moveDir != Vector3.zero) {
             float rotateSlerpSpeed = 10f;
