@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
     public event EventHandler OnStateChanged;
 
-    private enum State {
+    public enum State {
         MainMenuScene,
         PauseBeforeStart,
         TimerToStart,
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
         GameOver,
     }
 
-    private State _state;
+    public State _state;
 
     private float _timeBeforeStart = .1f;
     private float _timeToStart = 3f;
@@ -107,6 +107,17 @@ public class GameManager : MonoBehaviour {
 
     public void ReturnToMenu() {
         _state = State.MainMenuScene;
+
+        // —брос таймера
+        _timeBeforeStart = 0.1f;
+        _timeToStart = 3f;
+        _itsTimeToPlay = _itsTimeToPlayMax;
+
+        OnStateChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void RestartGame() {
+        _state = State.PauseBeforeStart;
 
         // —брос таймера
         _timeBeforeStart = 0.1f;
