@@ -116,7 +116,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         _isWalking = moveDir != Vector3.zero;
 
         currentSpeedNormalized = direction.magnitude * accelerationDirection;
-        Debug.Log($"currentSpeedNormalized: {currentSpeedNormalized}");
 
         if (moveDir != Vector3.zero) {
             float rotateSlerpSpeed = 10f;

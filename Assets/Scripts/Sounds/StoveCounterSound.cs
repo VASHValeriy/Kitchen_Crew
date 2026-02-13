@@ -1,5 +1,3 @@
-using Autodesk.Fbx;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class StoveCounterSound : MonoBehaviour {
