@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 708e58905eb15c54d90198e0a5cdb76c
+guid: 726d5b1eaebf5a341a82a285fbd624dd
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -48,11 +48,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Idle v1 (1)
-      takeName: Armature|Idle v1
+      name: Armature|Idle & plate
+      takeName: Armature|Idle & plate
       internalID: 3205985463410574476
       firstFrame: 0
-      lastFrame: 349
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -733,18 +733,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Chibi(Clone)
+    - name: Chibi_Plate(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Apron
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Armature
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 0.19341666, y: 0.19341666, z: 0.19341666}
@@ -999,42 +999,42 @@ ModelImporter:
       rotation: {x: -0.041022096, y: 0.0031032935, z: 0.10700287, w: 0.9934073}
       scale: {x: 0.9999998, y: 1.0000088, z: 1.0000018}
     - name: Blouse
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Boots
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Cube
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -6.617445e-24, y: 9.313226e-10, z: -2.1175824e-22}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 0.009480416, y: 0.009480416, z: 0.009480416}
     - name: Glaza
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Resnici
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Telo
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Trousers
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Volosi
-      parentName: Chibi(Clone)
+      parentName: Chibi_Plate(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
