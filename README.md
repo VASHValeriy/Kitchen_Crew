@@ -11,7 +11,9 @@ Kitchen Crew — это простая 3D игра, где нужно готов
 ## Скриншоты
 
 ![Скриншот игры](KC_Unity.png)
-
+![Скриншот игры](KC_BigBurger.png)
+![Скриншот игры](KC_DeliverySuccess.png)
+![Скриншот игры](KC_MeatInDanger.png)
 
 ## Как играть
 
